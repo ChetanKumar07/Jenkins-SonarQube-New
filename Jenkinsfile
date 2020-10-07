@@ -1,8 +1,10 @@
-node{
+pipeline{
+   agent any
    environment {
     registry = "chetan8123/my_app_container"
     registryCredential = ‘dockerhub’
   }
+  stages {
    stage('SCM Checkout'){
      git 'https://github.com/ChetanKumar07/Jenkins-SonarQube-New'
    }
@@ -25,14 +27,14 @@ node{
           bat (/"${mvnHome}\bin\mvn" sonar:sonar/)
         }
     }
-	stage('Building image') {
+   stage('Building image') {
       steps{
         script {
           docker.build registry + ":$BUILD_NUMBER"
         }
       }
     }
-	stage('Push Image into DockerHub') {
+   stage('Push Image into DockerHub') {
       steps{
         script {
           docker.withRegistry( '', registryCredential ) {
@@ -41,4 +43,5 @@ node{
         }
       }
     }
+  }
 }
