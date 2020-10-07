@@ -1,10 +1,8 @@
 node {
-   agent any
    environment {
     registry = "chetan8123/my_app_container"
     registryCredential = 'dockerhub'
   }
-  stages {
    stage('SCM Checkout'){
      git 'https://github.com/ChetanKumar07/Jenkins-SonarQube-New'
    }
@@ -43,5 +41,4 @@ node {
         }
       }
     }
-  }
 }
