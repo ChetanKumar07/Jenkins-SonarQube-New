@@ -2,7 +2,7 @@ pipeline{
    agent any
    environment {
     registry = "chetan8123/my_app_container"
-    registryCredential = ‘dockerhub’
+    registryCredential = 'dockerhub'
   }
   stages {
    stage('SCM Checkout'){
