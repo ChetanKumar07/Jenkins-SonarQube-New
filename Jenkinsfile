@@ -27,7 +27,8 @@ node {
     }
    stage('Building image') {
         script {
-          docker.build registry + ":$BUILD_NUMBER"
+          //docker.build registry + ":$BUILD_NUMBER"
+          docker.build("chetan8123/my_app_container")
         }
         echo "Building Docker Image"
       }
