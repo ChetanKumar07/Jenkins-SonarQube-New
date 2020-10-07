@@ -31,7 +31,6 @@ node {
         }
         echo "Building Docker Image"
       }
-    }
    stage('Push Image into DockerHub') {
         script {
           docker.withRegistry( '', registryCredential ) {
