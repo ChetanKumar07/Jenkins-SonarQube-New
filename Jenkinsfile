@@ -1,4 +1,4 @@
-pipeline{
+node {
    agent any
    environment {
     registry = "chetan8123/my_app_container"
