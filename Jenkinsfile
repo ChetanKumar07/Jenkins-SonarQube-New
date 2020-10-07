@@ -30,6 +30,7 @@ node {
         script {
           docker.build registry + ":$BUILD_NUMBER"
         }
+        echo "Building Docker Image"
       }
     }
    stage('Push Image into DockerHub') {
@@ -39,6 +40,7 @@ node {
             dockerImage.push()
           }
         }
+        echo "Pushing Docker Build to DockerHub"
       }
     }
 }
