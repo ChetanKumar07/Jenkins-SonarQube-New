@@ -1,4 +1,5 @@
 node {
+   def app
    environment {
     registry = "chetan8123/my_app_container"
     registryCredential = 'dockerhub'
@@ -28,14 +29,15 @@ node {
    stage('Building image') {
         script {
           //docker.build registry + ":$BUILD_NUMBER"
-          docker.build("chetan8123/my_app_container")
+          app = docker.build("chetan8123/my_app_container")
         }
         echo "Building Docker Image"
       }
    stage('Push Image into DockerHub') {
         script {
           //docker.withRegistry( 'https://registry.hub.docker.com', 'dockerhub' ) {
-            dockerImage.push()
+            //dockerImage.push()
+            app.push("latest")
           //}
         echo "Pushing Docker Build to DockerHub"
       }
