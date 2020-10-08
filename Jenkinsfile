@@ -36,7 +36,7 @@ node {
         script {
           //docker.withRegistry( 'https://registry.hub.docker.com', 'dockerhub' ) {
             dockerImage.push()
-          }
+          //}
         echo "Pushing Docker Build to DockerHub"
       }
     }
