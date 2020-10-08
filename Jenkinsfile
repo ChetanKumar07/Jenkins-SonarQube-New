@@ -31,7 +31,7 @@ node {
           //docker.build registry + ":$BUILD_NUMBER"
           app = docker.build("chetan8123/my_app_container")
         }
-        echo "Building Docker Image"
+        echo "Docker Image Built"
       }
    stage('Push Image into DockerHub') {
         script {
@@ -39,7 +39,7 @@ node {
             //dockerImage.push()
             app.push("latest")
           }
-        echo "Pushing Docker Build to DockerHub"
+        echo "Pushed Docker Build to DockerHub"
       }
     }
 }
