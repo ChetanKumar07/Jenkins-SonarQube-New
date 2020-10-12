@@ -23,11 +23,8 @@ pipeline {
     stage('Deploy Image') {
       steps{
          script {
-            //docker.withRegistry( '', registryCredential ) {
-            //dockerImage.push()
-	    def buildRegistry = [ url: 'https://registry-1.docker.io/v2/', credentialsId: 'dockerhub' ]
-	    withDockerRegistry(registry: buildRegistry ){
-	    echo "Pushed Docker Build to DockerHub"
+            docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
           }
         }
       }
