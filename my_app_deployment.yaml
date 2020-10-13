@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-site
+  namespace: myapp-site
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp-site
+  template:
+    metadata:
+      labels:
+        app: myapp-site
+    spec:
+      containers:
+      - name: myapp-site
+        image: chetan8123/my_app_container
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8082
